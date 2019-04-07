@@ -1,13 +1,52 @@
 import React from 'react';
+import Axios from 'axios';
 
 import login_ico from '../Recursos/Imagens/icon-login.png';
 
 import "../Recursos/css/login.css"
-import "../Recursos/css/flexbox.css";
-import "../Recursos/css/reset.css";
-import "../Recursos/css/style.css";
+
+import MensagemErro from '../Componentes/Feedback/MensagenErro';
 
 class Login extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            email : '',
+            senha : '',
+			erroMensagem : '',
+        }
+        
+    }
+
+    atualizaEstadoEmail(event){
+        this.setState({ email : event.target.value});
+    }
+
+    atualizaEstadoSenha(event){
+        this.setState({ senha : event.target.value});
+    }
+
+    efetuaLogin(event){
+        event.preventDefault();
+        
+        // alert(this.state.email + " - " + this.state.senha);
+
+        Axios.post("http://localhost:5000/api/usuario/login", {
+           email : this.state.email,
+           senha: this.state.senha
+        })
+        .then(data => {
+            if(data.status === 200){
+                console.log(data);
+                localStorage.setItem("usuario-svigufo", data.data.token);
+                this.props.history.push("/principal");
+            } 
+        })
+        .catch(erro => {
+            this.setState({ erroMensagem : erro});
+        })
+    }
+
 	render() {
 		return (
 			<div className="App">
@@ -26,19 +65,16 @@ class Login extends React.Component {
 									Bem-vindo! Faça login para acessar sua conta.
 								</p>
 							</div>
-							<form>
+							<form onSubmit={this.efetuaLogin.bind(this)}>
 								<div className="item">
-									<input class="input__login" placeholder="username" type="text" name="username" id="login__email" />
+									<input class="input__login" placeholder="username" type="text" name="username" id="login__email"/>
 								</div>
 								<div className="item">
-									<input class="input__login" placeholder="password" type="password" name="password"
-										id="login__password" />
+									<input class="input__login" placeholder="password" type="password" name="password" id="login__password" />
+									<MensagemErro MensagemErro={this.state.erroMensagem}/>
 								</div>
 								<div className="item">
-
-									<button className="btn btn__login" id="btn__login">
-										Login
-									</button>
+									<input type = "submit" className="btn btn__login" id="btn__login" value="Login"/>
 								</div>
 							</form>
 						</div>

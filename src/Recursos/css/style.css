@@ -289,7 +289,7 @@ nav .cabecalhoPrincipal-nav-login {
 /* Conteúdo sobre a visão */
 
 #conteudoPrincipal-visao {
-  height: 50vh;
+  height: 60vh;
   color: white;
   background-image: linear-gradient(rgba(111, 71, 255, 0.7), rgba(111, 71, 255, 0.8)), url("../Imagens/visao.jpg");
   background-size: cover;

@@ -1,0 +1,46 @@
+
+        .comic{
+            text-align: center;
+            color:black;
+            font-family: 'Comic Sans MS';
+        }
+        .comic *{
+          margin-top:50px;
+          font-size: 20px;
+        }
+        #background{
+            background: none;
+            background-image: url('../Imagens/corndog-tile-1.png'), url('../Imagens/corndog-tile.png'), url('../Imagens/corndog-tile-2.png');
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index:1;
+            -webkit-animation: background 1000s linear infinite;
+            -moz-animation: background 1000s linear infinite;
+            -ms-animation: background 1000s linear infinite;
+            animation: background 1000s linear infinite;
+            -webkit-transform: translate3d(0,0,0);
+            -moz-transform: translate3d(0,0,0);
+            -ms-transform: translate3d(0,0,0);
+            -o-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+        }
+        @keyframes background {
+          0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+          100% {background-position: 50000px 50000px, 10000px 20000px, -10000px 15000px;}          
+        }
+        @-moz-keyframes background {
+          0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+          100% {background-position: 50000px 50000px, 10000px 20000px, -10000px 15000px;}          
+        }
+        @-webkit-keyframes background {
+          0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+          100% {background-position: 50000px 50000px, 10000px 20000px, -10000px 15000px;}          
+        }
+        @-ms-keyframes background {
+          0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+          100% {background-position: 50000px 50000px, 10000px 20000px, -10000px 15000px;}          
+        }   
+    

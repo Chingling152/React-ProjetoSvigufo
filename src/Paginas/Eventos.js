@@ -1,20 +1,24 @@
-import React from 'react';
+import React,{ Component }from 'react';
 
-import Cabecalho from '../Componentes/Cabeçalho';
-import Rodape from '../Componentes/Rodape';
+import Cabecalho from '../Componentes/Partes/Cabeçalho';
+import Rodape from '../Componentes/Partes/Rodape';
+import Titulo from "../Componentes/Pequenos/Titulo.js";
 
 import "../Recursos/css/flexbox.css";
 import "../Recursos/css/reset.css";
 import "../Recursos/css/style.css";
-class Eventos extends React.Component {
+import SubTitulo from '../Componentes/Pequenos/SubTitulo';
+import BotaoCadastro from '../Componentes/Pequenos/BotaoCadastro';
+
+class Eventos extends Component {
     render() {
         return (
             <div id="App">
             <Cabecalho/>
-            <main class="conteudoPrincipal">
-                <section class="conteudoPrincipal-cadastro">
-                    <h1 class="conteudoPrincipal-cadastro-titulo">Eventos</h1>
-                    <div class="container" id="conteudoPrincipal-lista">
+            <main className="conteudoPrincipal">
+                <section className="conteudoPrincipal-cadastro">
+                <Titulo titulo="Eventos"/>
+                    <div className="container" id="conteudoPrincipal-lista">
 
                         <table id="tabela-lista">
                             <thead>
@@ -32,9 +36,9 @@ class Eventos extends React.Component {
 
                     </div>
 
-                    <div class="container" id="conteudoPrincipal-cadastro">
-                        <h2 class="conteudoPrincipal-cadastro-titulo">Cadastrar Evento</h2>
-                        <div class="container">
+                    <div className="container" id="conteudoPrincipal-cadastro">
+                        <SubTitulo titulo="Cadastrar evento"/>
+                        <div className="container">
 
                             <input type="text" id="evento__titulo" placeholder="título do evento"/>
                                 <input type="text" id="evento__data" placeholder="dd/MM/yyyy"/>
@@ -46,10 +50,8 @@ class Eventos extends React.Component {
                                         <option value="0" disabled>Tipo do Evento</option>
                                     </select>
                                     <textarea rows="3" cols="50" placeholder="descrição do evento" id="evento__descricao"></textarea>
-
-                        </div>
-                            <button class="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro"
-                                onclick="cadastrarEvento()">Cadastrar</button>
+                                </div>
+                            <BotaoCadastro titulo="Evento"/>
                     </div>
                 </section>
             </main>

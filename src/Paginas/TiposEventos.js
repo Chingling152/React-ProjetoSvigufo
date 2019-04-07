@@ -1,11 +1,10 @@
 import React from 'react';
 
-import Cabecalho from '../Componentes/Cabeçalho';
-import Rodape from '../Componentes/Rodape';
-
-import "../Recursos/css/flexbox.css";
-import "../Recursos/css/reset.css";
-import "../Recursos/css/style.css";
+import Cabecalho from '../Componentes/Partes/Cabeçalho';
+import Titulo from '../Componentes/Pequenos/Titulo';
+import Rodape from '../Componentes/Partes/Rodape';
+import BotaoCadastro from '../Componentes/Pequenos/BotaoCadastro';
+import SubTitulo from '../Componentes/Pequenos/SubTitulo';
 
 class TiposEventos extends React.Component {
     render() {
@@ -14,7 +13,7 @@ class TiposEventos extends React.Component {
                 <Cabecalho/>
                 <main className="conteudoPrincipal">
                     <section className="conteudoPrincipal-cadastro">
-                        <h1 className="conteudoPrincipal-cadastro-titulo">Tipos de Eventos</h1>
+                        <Titulo titulo="Tipos de Evento"/>
                         <div className="container" id="conteudoPrincipal-lista">
                             <table id="tabela-lista">
                                 <thead>
@@ -29,15 +28,11 @@ class TiposEventos extends React.Component {
                         </div>
 
                         <div className="container" id="conteudoPrincipal-cadastro">
-                            <h2 className="conteudoPrincipal-cadastro-titulo">
-                                Cadastrar Tipo de Evento
-                            </h2>
+                            <SubTitulo titulo="Cadastrar Tipo de Evento"/>
                             <form id="form" method="POST">
                                 <div className="container">
                                     <input type="text" id="nome-tipo-evento" placeholder="tipo do evento" />
-                                    <button class="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro">
-                                        Cadastrar
-                                    </button>
+                                    <BotaoCadastro titulo="Tipo de Evento"/>
                                 </div>
                             </form>
                         </div>
